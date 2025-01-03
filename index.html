@@ -3,28 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Showcase</title>
+    <title>Technical Mock Interviews Dashboard</title>
     <style>
-        /* Style for the body to center the iframe */
         body {
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
         }
-        /* Make the iframe fill the entire screen */
-        iframe {
+        h1 {
+            text-align: center;
+        }
+        table {
             width: 100%;
-            height: 100%;
-            border: none;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .details {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <!-- Embed your published Google Sheet as an iframe -->
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQd3OLnGv2cOPDc7mnYWehkzS3P9_uEtE-7uAyr88mHB-90Uxg3TJpmBVSTx5_6qZHVfmBQJ3o1rgic/pubhtml" frameborder="0"></iframe>
+    <h1>Technical Mock Interviews Dashboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Program</th>
+                <th>Batch Code</th>
+                <th>Batch Size</th>
+                <th>1st Round Taken</th>
+                <th>2nd Round Taken</th>
+                <th>3rd Round Taken</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Row for SMIPB -->
+            <tr>
+                <td>SMIPB</td>
+                <td>SA2402023</td>
+                <td>8</td>
+                <td>3</td>
+                <td>0</td>
+                <td>0</td>
+                <td><span class="details" onclick="showDetails('details1')">Click for Detail View</span></td>
+            </tr>
+            <tr id="details1" class="hidden">
+                <td colspan="7">Detailed view for SMIPB: SA2402023...</td>
+            </tr>
+            <!-- Row for PMIPB -->
+            <tr>
+                <td>PMIPB</td>
+                <td>SA2410043</td>
+                <td>9</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td><span class="details" onclick="showDetails('details2')">Click for Detail View</span></td>
+            </tr>
+            <tr id="details2" class="hidden">
+                <td colspan="7">Detailed view for PMIPB: SA2410043...</td>
+            </tr>
+            <!-- Row for POIPB -->
+            <tr>
+                <td>POIPB</td>
+                <td>SA2409063</td>
+                <td>6</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td><span class="details" onclick="showDetails('details3')">Click for Detail View</span></td>
+            </tr>
+            <tr id="details3" class="hidden">
+                <td colspan="7">Detailed view for POIPB: SA2409063...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Function to toggle visibility of detailed rows
+        function showDetails(rowId) {
+            const row = document.getElementById(rowId);
+            row.classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
